@@ -1,0 +1,11 @@
+PROGRAM cigany
+  IMPLICIT NONE
+  INTEGER:: i
+  i=4
+
+
+
+ 
+   PRINT*, i
+
+END PROGRAM
