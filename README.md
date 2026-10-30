@@ -1,10 +1,10 @@
 # BNagy-cc2627
 
-## *personal repository for the coding in chemistry course (26-27)
+## __personal repository for the coding in chemistry course (26-27)__
       Mostly fortran and python code
 
 
 
 
 
-** Csa'o' ragaszto'! First Repo. **
+_Csa'o' ragaszto'! First Repo._
