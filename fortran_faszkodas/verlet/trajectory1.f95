@@ -28,18 +28,25 @@ PROGRAM Traj1
     x=0
     y=0
     z=0
+    Vx=Fx0
+    Vy=Fy0
+    Vz=Fz0
+
    DO i=1,k 
       !0+(0.2/2*1)*(0.1*2)
-    Vx=Fx0+((dt/2*m)*(Fx*2))
-    Vy=Fy0+((dt/2*m)*(Fy*2))
-    Vz=Fz0+((dt/2*m)*(Fz*2))
-    
+   
     x= x+(dt*Vx)+(dt**2*(Fx/2*m))
     y= y+(dt*Vy)+(dt**2*(Fy/2*m))
     z= z+(dt*Vz)+(dt**2*(Fz/2*m))
+   
+    Vx=Vx+((dt/2*m)*(Fx*2))
+    Vy=Vy+((dt/2*m)*(Fy*2))
+    Vz=Vz+((dt/2*m)*(Fz*2))
+   
 
+    Print*,"pos" x,y,z
+    Print*,"speed" Vx,Vy,Vz
 
-    Print*, x,y,z
    ENDDO 
 
 
