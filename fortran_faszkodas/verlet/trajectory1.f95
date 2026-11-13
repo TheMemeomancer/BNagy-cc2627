@@ -2,7 +2,7 @@ PROGRAM Traj1
         IMPLICIT NONE
   !variables
         REAL :: m,Fx,Fy,Fz !mass(kg) Fxyz(kg m s-2) 
-        INTEGER :: i,k
+        INTEGER :: k,nk
         REAL :: dt !(step#,time of one step(s)) 
         REAL ::X0,Y0,Z0,Fx0,Fy0,Fz0 !inital position and speed
         REAL :: x,y,z,Vx,Vy,Vz !current postion of body
@@ -10,8 +10,8 @@ PROGRAM Traj1
 
         PRINT*,"Give me the mass(Kg) and the forces x,y,z (kg m s-2)!"
         READ*, m,Fx,Fy,fz
-        PRINT*,"Give me the temporal dimensions(k,Tau)!"
-        READ*, k,dt
+        PRINT*,"Give me the temporal dimensions(nk,Tau)!"
+        READ*, nk,dt
         PRINT*,"Give me the inital position (X0,Y0,Z0)!"
         READ*, X0,Y0,Z0
         PRINT*,"Give me the initial speed (Fx0,Fy0,Fz0)!"
@@ -32,7 +32,7 @@ PROGRAM Traj1
     Vy=Fy0
     Vz=Fz0
 
-   DO i=1,k 
+   DO k=1,nk 
       !0+(0.2/2*1)*(0.1*2)
    
     x= x+(dt*Vx)+(dt**2*(Fx/2*m))
