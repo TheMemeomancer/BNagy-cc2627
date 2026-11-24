@@ -42,10 +42,11 @@ PROGRAM IOarray
      
    ENDDO  
      
-   OPEN (unit=12, FILE="output.txt", STATUS="replace", ACTION="write")
-      DO l=1,p
-        WRITE (UNIT=11, FMT=*) par (:,:) 
-      ENDDO
+  OPEN (unit=12, FILE="output.txt", STATUS="replace", ACTION="write")
+    WRITE (UNIT=12,FMT=*) "x,y,z,Vx,Vy,Vz"
+     DO l=1,p  
+      WRITE (UNIT=12, FMT='(*(E12.4))') par (l,2:7) 
+     ENDDO
   CLOSE(12)    
 DEALLOCATE ( par, Fnext ) 
 ENDPROGRAM
