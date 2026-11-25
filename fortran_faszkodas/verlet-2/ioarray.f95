@@ -40,18 +40,18 @@ PROGRAM IOarray
     DO k=1,nk                              
      par(j,2:4) = par(j,2:4)+(dt*par(j,5:7))+((dt**2.0)*(par(j,8:10)/(2.0*par(j,1))))
       
-     !Fnext(1:p,:) = par(1:p,5:7)
-     par(j,5:7)=par(j,5:7)+((dt/2*par(j,1))*(par(j,8:10)*2.0))
-     !par(:,5:7)=par(:,5:7)+((dt/2*spread(par(:,1), dim=2, ncopies=3))*(par(:,5:7)+Fnext(:,:)))
-   
-   
+     Fnext(j,1:3) = par(j,8:10)
+     par(j,5:7)=par(j,5:7)+((dt/2*par(j,1))*(par(j,8:10)*Fnext(j,1:3)))
+     
+ 
     ENDDO 
    ENDDO  
      
   OPEN (unit=12, FILE="output.txt", STATUS="replace", ACTION="write")
-    WRITE (UNIT=12,FMT=*) "m,x,y,z,Vx,Vy,Vz"
+    WRITE (UNIT=12,FMT=*) "m              | x            y               z            | Vx             Vy               Vz            | Fx             Fy           Fz"
      DO l=1,p  
-      WRITE (UNIT=12, FMT='(*(G12.4))') par (l,:) 
+      WRITE (UNIT=12, FMT=*) "  "
+      WRITE (UNIT=12, FMT='(*(G12.4))')par(l,1),"|",par(l,2:4),"|",par(l,5:7),"|",par(l,8:10) 
      ENDDO
   CLOSE(12)    
 
