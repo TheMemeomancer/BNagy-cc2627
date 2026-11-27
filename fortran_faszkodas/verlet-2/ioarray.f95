@@ -2,26 +2,27 @@ PROGRAM IOarray
         IMPLICIT NONE
   !variables
         INTEGER,PARAMETER :: wp = selected_real_kind (p=13,r=300)
-        REAL (KIND=wp):: m,Fx,Fy,Fz !mass(kg) Fxyz(kg m s-2) 
+        !REAL (KIND=wp):: m,Fx,Fy,Fz !mass(kg) Fxyz(kg m s-2) 
         INTEGER :: k,l,j,    nk,p  !docycle(s),    # of steps,# of particles 
         REAL (KIND=wp):: dt !(time of one step(s)) 
-        REAL (KIND=wp)::X0,Y0,Z0,Fx0,Fy0,Fz0,Fxnext !inital position and speed
-        REAL (KIND=wp):: x,y,z,Vx,Vy,Vz !current postion of body
+        !REAL (KIND=wp)::X0,Y0,Z0,Fx0,Fy0,Fz0,Fxnext !inital position and speed
+        !REAL (KIND=wp):: x,y,z,Vx,Vy,Vz !current postion of body
        
         REAL (KIND=wp), DIMENSION (:,:), ALLOCATABLE :: par
         REAL (KIND=wp), DIMENSION (:,:), ALLOCATABLE :: Fnext 
-        !REAL (KIND=wp), DIMENSION (),ALLOCATABLE :: 
+         
    
      !for testing(fixed values)
      ! m=1 ;Fx=0.1; Fy=0; Fz=0; nk=600; dt=0.2; X0=0; Y0=0; Z0=0;
      ! Fx0=0; Fy0=0; Fz0=0
      !setting 00
-     x=0; y=0; z=0; Vx=0; Vy=0; Vz=0
+     !x=0; y=0; z=0; Vx=0; Vy=0; Vz=0
      ! Vx=Fx0; Vy=Fy0; Vz=Fz0
 
         
   !input
 
+ 
         OPEN (unit=11, FILE="input.txt", STATUS="old", ACTION="read")
         READ (UNIT=11, FMT=*) nk, dt  
         READ (UNIT=11, FMT=*) p
